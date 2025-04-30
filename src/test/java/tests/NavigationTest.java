@@ -1,15 +1,15 @@
 package tests;
 
-import framework.base.BaseTest;
 import framework.ui.*;
 import framework.pages.HomePage;
 import io.qameta.allure.*;
+import tests.base.BaseTest;
 
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
 @Feature("Navigation")
-public class NavigationTest extends BaseTest {
+public class NavigationTest extends BaseTest{
 
     private HomePage home;
 
