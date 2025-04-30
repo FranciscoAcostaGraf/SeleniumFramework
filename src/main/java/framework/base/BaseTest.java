@@ -14,9 +14,10 @@ public abstract class BaseTest {
 
     @BeforeMethod
     @Parameters("browser")
-    public void setUp(String browser) {
+    public void setUp(@Optional("chrome") String browser) {
         System.out.println("=== Test started on: " + browser + " ===");
         WebDriver driver = DriverFactory.createDriver(browser);
+        driver.get(getBaseUrl());
         driverThreadLocal.set(driver);
     }
 
@@ -37,6 +38,11 @@ public abstract class BaseTest {
 
     protected WebDriver getDriver() {
         return driverThreadLocal.get();
+    }
+
+    protected String getBaseUrl() {
+        return "https://tiendaqa.centyc.com.ar/";
+        // Podés escalar esto leyendo de un .properties o System.getProperty("base.url")
     }
 
     @Attachment(value = "Screenshot on failure - {0}", type = "image/png")

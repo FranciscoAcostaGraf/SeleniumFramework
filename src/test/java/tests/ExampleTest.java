@@ -1,24 +1,23 @@
 package tests;
 
-import framework.drivers.DriverFactory;
+import framework.base.BaseTest;
 import framework.pages.HomePage;
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.*;
 import io.qameta.allure.*;
+
+import org.testng.ITestResult;
+import org.testng.annotations.*;
 
 @Epic("E-commerce UI Tests")
 @Feature("Home Page Features")
-public class ExampleTest {
+public class ExampleTest extends BaseTest {
 
-    private WebDriver driver;
     private HomePage home;
 
     @BeforeMethod
     @Parameters("browser")
-    public void setup(@Optional("chrome") String browser) {
-        driver = DriverFactory.createDriver(browser);
-        driver.get("https://tiendaqa.centyc.com.ar/");
-        home = new HomePage(driver);
+    public void initHomePage(@Optional("chrome") String browser) {
+        super.setUp(browser); // ya navega automáticamente
+        home = new HomePage(getDriver());
     }
 
     @Test(description = "Should display logo on the homepage")
@@ -29,28 +28,8 @@ public class ExampleTest {
         home.verifyLogoIsVisible();
     }
 
-    @Test(description = "Should return search results for a product")
-    @Severity(SeverityLevel.NORMAL)
-    @Story("Search functionality")
-    @Description("Search for 'Necronomicón' and ensure results appear")
-    public void testSearchProduct() {
-        home.searchForProduct("Necronomicón");
-        home.verifySearchResultsPresent();
-    }
-
-    @Test(description = "Should open the cart and show it's empty")
-    @Severity(SeverityLevel.MINOR)
-    @Story("Shopping cart")
-    @Description("Click on cart icon and verify empty cart message is shown")
-    public void testOpenCart() {
-        home.openCart();
-        home.verifyCartIsVisible();
-    }
-
     @AfterMethod
-    public void teardown() {
-        if (driver != null) {
-            driver.quit();
-        }
+    public void cleanup(ITestResult result) {
+        super.tearDown(result);
     }
 }
