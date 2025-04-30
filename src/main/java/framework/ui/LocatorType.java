@@ -9,5 +9,6 @@ public enum LocatorType {
     PARTIAL_LINK_TEXT,
     CSS_SELECTOR,
     XPATH,
-    CONTAINS_TEXT
+    CONTAINS_TEXT,
+    NORMALIZE
 }

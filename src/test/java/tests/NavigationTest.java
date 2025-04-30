@@ -24,6 +24,7 @@ public class NavigationTest extends BaseTest{
     @Description("Verify that i can access to informes de gestion")
     public void navigateThroughTabs() {
         home.goToInformesGestion();
+        
     }
 
     @AfterMethod
