@@ -7,12 +7,14 @@ import org.openqa.selenium.WebDriver;
 
 public class HomePage extends BasePage {
 
-    private final By informesGestion = LocatorStrategy.get(LocatorType.CONTAINS_TEXT, "INFORMES DE GESTION");
+    public final By informesGestion = LocatorStrategy.get(LocatorType.CONTAINS_TEXT, "INFORMES DE GESTION");
 
     public HomePage(WebDriver driver) {
         super(driver);
     }
 
+    public void clickButton (By locator){
+        ui.click(locator);
+    }
 
-    
 }
