@@ -1,6 +1,5 @@
 package tests;
 
-import framework.ui.*;
 import framework.pages.HomePage;
 import io.qameta.allure.*;
 import tests.base.BaseTest;
@@ -24,6 +23,10 @@ public class NavigationTest extends BaseTest{
     @Description("Verify that i can access to informes de gestion")
     public void navigateThroughTabs() {
         home.goToInformesGestion();
+        home.goToTabs("Reporte De Comisiones Nacionales");
+        home.goToTabs("Reporte De Comisiones Internacionales");
+        home.goToTabs("Reporte De Vencimiento Nacionales");
+        home.goToTabs("Reporte De Vencimiento Internacionales");
         
     }
 
@@ -31,4 +34,5 @@ public class NavigationTest extends BaseTest{
     public void cleanup(ITestResult result) {
         super.tearDown(result);
     }
+    
 }
