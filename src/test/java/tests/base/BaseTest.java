@@ -20,6 +20,8 @@ public abstract class BaseTest {
         try (InputStream input = BaseTest.class.getClassLoader().getResourceAsStream("config.properties")) {
             config.load(input);
         } catch (Exception e) {
+            System.err.println("Error al cargar config.properties:");
+            e.printStackTrace(); // Imprime la traza completa de la excepción
             throw new RuntimeException("No se pudo cargar config.properties", e);
         }
     }
