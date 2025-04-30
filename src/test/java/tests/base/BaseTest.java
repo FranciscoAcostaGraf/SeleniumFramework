@@ -8,15 +8,28 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
+import java.io.InputStream;
+import java.util.Properties;
+
 public abstract class BaseTest {
 
     private static final ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
+    private static final Properties config = new Properties();
+
+    static {
+        try (InputStream input = BaseTest.class.getClassLoader().getResourceAsStream("config.properties")) {
+            config.load(input);
+        } catch (Exception e) {
+            throw new RuntimeException("No se pudo cargar config.properties", e);
+        }
+    }
 
     @BeforeMethod
     @Parameters("browser")
     public void setUp(@Optional("chrome") String browser) {
         System.out.println("=== Test started on: " + browser + " ===");
         WebDriver driver = DriverFactory.createDriver(browser);
+        driver.get(getBaseUrl()); // ahora sí usa el config
         driverThreadLocal.set(driver);
     }
 
@@ -37,6 +50,14 @@ public abstract class BaseTest {
 
     protected WebDriver getDriver() {
         return driverThreadLocal.get();
+    }
+
+    protected String getBaseUrl() {
+        String url = config.getProperty("base.url");
+        if (url == null || url.isBlank()) {
+            throw new RuntimeException("No se encontró 'base.url' en config.properties");
+        }
+        return url;
     }
 
     @Attachment(value = "Screenshot on failure - {0}", type = "image/png")
