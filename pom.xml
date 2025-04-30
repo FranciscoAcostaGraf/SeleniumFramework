@@ -15,7 +15,7 @@
             <version>4.20.0</version>
         </dependency>
 
-        <!-- TestNG (sin scope=test para uso en main también) -->
+        <!-- TestNG -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -45,13 +45,17 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
                 <configuration>
+                    <systemPropertyVariables>
+                        <!-- Forzar directorio de resultados de Allure -->
+                        <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+                    </systemPropertyVariables>
                     <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
 
-            <!-- Allure Reporting -->
+            <!-- Allure Reporting Plugin -->
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
@@ -60,12 +64,11 @@
                     <reportDirectory>${project.build.directory}/allure-report</reportDirectory>
                     <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
                 </configuration>
-            </plugin>            
+            </plugin>
         </plugins>
 
         <pluginManagement>
             <plugins>
-                <!-- Optional: prevent encoding warnings -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
