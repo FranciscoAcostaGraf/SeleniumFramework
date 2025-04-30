@@ -41,4 +41,5 @@ public class UiFunctions {
     public void waitForInvisibility(By locator) {
         wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
     }
+    
 }
