@@ -23,7 +23,7 @@ public class NavigationTest extends BaseTest{
     @Test(description = "Should navigate to diff tabs")
     @Description("Verify that i can access to informes de gestion")
     public void navigateThroughTabs() {
-        home.clickButton(informesGestion);
+        home.goToInformesGestion();
     }
 
     @AfterMethod

@@ -17,4 +17,8 @@ public class HomePage extends BasePage {
         ui.click(locator);
     }
 
+    public void goToInformesGestion () {
+        ui.click(informesGestion);
+    }
+
 }
