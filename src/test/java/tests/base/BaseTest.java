@@ -14,7 +14,7 @@ public abstract class BaseTest {
 
     @BeforeMethod
     @Parameters("browser")
-    public void setUp(String browser) {
+    public void setUp(@Optional("chrome") String browser) {
         System.out.println("=== Test started on: " + browser + " ===");
         WebDriver driver = DriverFactory.createDriver(browser);
         driverThreadLocal.set(driver);
