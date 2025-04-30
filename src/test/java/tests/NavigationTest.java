@@ -8,9 +8,8 @@ import io.qameta.allure.*;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
-@Epic("E-commerce UI Tests")
-@Feature("Home Page Features")
-public class ExampleTest extends BaseTest {
+@Feature("Navigation")
+public class NavigationTest extends BaseTest {
 
     private HomePage home;
 
@@ -21,12 +20,10 @@ public class ExampleTest extends BaseTest {
         home = new HomePage(getDriver());
     }
 
-    @Test(description = "Should display logo on the homepage")
-    @Severity(SeverityLevel.CRITICAL)
-    @Story("Visual branding")
+    @Test(description = "Should navigate to diff tabs")
     @Description("Verify that the store logo is visible on page load")
-    public void testLogoIsVisible() {
-        home.
+    public void navigateThroughTabs() {
+        home.verifyLogoIsVisible();
     }
 
     @AfterMethod

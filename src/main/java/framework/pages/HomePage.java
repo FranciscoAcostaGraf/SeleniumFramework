@@ -8,11 +8,6 @@ import org.openqa.selenium.WebDriver;
 public class HomePage extends BasePage {
 
     private final By logo = LocatorStrategy.get(LocatorType.CSS_SELECTOR, "img.custom-logo");
-    private final By searchInput = LocatorStrategy.get(LocatorType.CSS_SELECTOR, "input[type='search']");
-    private final By searchButton = LocatorStrategy.get(LocatorType.CSS_SELECTOR, "button[type='submit']");
-    private final By resultItem = LocatorStrategy.get(LocatorType.CSS_SELECTOR, ".woocommerce-loop-product__title");
-    private final By cartIcon = LocatorStrategy.get(LocatorType.CSS_SELECTOR, "a.cart-contents");
-    private final By cartTitle = LocatorStrategy.get(LocatorType.CSS_SELECTOR, ".cart-empty");
 
     public HomePage(WebDriver driver) {
         super(driver);
