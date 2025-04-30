@@ -1,6 +1,7 @@
 package tests;
 
 import framework.base.BaseTest;
+import framework.ui.*;
 import framework.pages.HomePage;
 import io.qameta.allure.*;
 
@@ -25,7 +26,7 @@ public class ExampleTest extends BaseTest {
     @Story("Visual branding")
     @Description("Verify that the store logo is visible on page load")
     public void testLogoIsVisible() {
-        home.verifyLogoIsVisible();
+        home.
     }
 
     @AfterMethod
