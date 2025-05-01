@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+import framework.config.ConfigReader;
+
 public class UiValidations {
 
     private WebDriver driver;
@@ -25,5 +27,9 @@ public class UiValidations {
 
     public void assertElementExists(By locator) {
         Assert.assertTrue(driver.findElements(locator).size() > 0, "Expected element to exist: " + locator);
+    }
+
+    public void verifyLink(String endpoint){
+        Assert.assertTrue(driver.getCurrentUrl().contains(endpoint));
     }
 }

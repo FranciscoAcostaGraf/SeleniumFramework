@@ -27,7 +27,6 @@ public class ElementsTest extends BaseTest {
         home.navigateTo("elements");
         home.goToTextBox();
         home.completeForm();
-
     }
 
     @AfterMethod

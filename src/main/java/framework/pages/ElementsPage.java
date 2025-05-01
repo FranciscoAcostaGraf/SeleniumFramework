@@ -28,6 +28,7 @@ public class ElementsPage extends BasePage {
 
     public void goToTextBox() {
         ui.click(textBox);
+        validate.verifyLink("/text-box");
     }
 
     public void goToPage(String locator) {

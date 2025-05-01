@@ -1,5 +1,6 @@
 package tests.base;
 
+import framework.config.ConfigReader;
 import framework.drivers.DriverFactory;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
@@ -56,11 +57,15 @@ public abstract class BaseTest {
     }
 
     public static String getBaseUrl() {
-        String url = config.getProperty("base.url");
+        String url = ConfigReader.get("base.url");
         if (url == null || url.isBlank()) {
             throw new RuntimeException("No se encontró 'base.url' en config.properties");
         }
         return url;
+    }
+
+    protected String getCurrentUrl() {
+        return getDriver().getCurrentUrl();
     }
 
     @Attachment(value = "Screenshot on failure - {0}", type = "image/png")
