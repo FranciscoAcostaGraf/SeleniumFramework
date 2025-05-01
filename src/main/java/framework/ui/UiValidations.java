@@ -29,7 +29,18 @@ public class UiValidations {
         Assert.assertTrue(driver.findElements(locator).size() > 0, "Expected element to exist: " + locator);
     }
 
-    public void verifyLink(String endpoint){
-        Assert.assertTrue(driver.getCurrentUrl().contains(endpoint));
+    public void verifyLink(String endpoint) {
+        String currentUrl = driver.getCurrentUrl();
+        String expectedUrl = ConfigReader.get("base.url").replaceAll("/$", "") + endpoint;
+    
+        Assert.assertEquals(
+            currentUrl,
+            expectedUrl,
+            "\n[🚨 URL Mismatch] La URL actual no coincide con la esperada\n" +
+            "  🔹 Esperada: " + expectedUrl + "\n" +
+            "  🔸 Actual:   " + currentUrl + "\n" +
+            "  ⚠️  Endpoint verificado: " + endpoint
+        );
     }
+    
 }
