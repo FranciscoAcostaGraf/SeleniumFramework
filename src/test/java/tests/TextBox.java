@@ -25,7 +25,8 @@ public class TextBox extends BaseTest {
 
     @Test(description = "Test Description")
     public void completeForm() {
-        home.goToPage("card mt-4 top-card");
+        home.navigateTo("elements");
+        home.goToTextBox();
     }
 
     @AfterMethod

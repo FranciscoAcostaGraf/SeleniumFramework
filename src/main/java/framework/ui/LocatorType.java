@@ -10,5 +10,6 @@ public enum LocatorType {
     CSS_SELECTOR,
     XPATH,
     CONTAINS_TEXT,
+    BUTTON_CONTAINS_TEXT,
     NORMALIZE
 }

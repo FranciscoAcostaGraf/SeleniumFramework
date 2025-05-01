@@ -54,7 +54,7 @@ public abstract class BaseTest {
         return driverThreadLocal.get();
     }
 
-    protected String getBaseUrl() {
+    public static String getBaseUrl() {
         String url = config.getProperty("base.url");
         if (url == null || url.isBlank()) {
             throw new RuntimeException("No se encontró 'base.url' en config.properties");

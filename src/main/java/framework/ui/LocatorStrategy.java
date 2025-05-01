@@ -22,8 +22,11 @@ public class LocatorStrategy {
                 return By.cssSelector(value);
             case XPATH:
                 return By.xpath(value);
+            case BUTTON_CONTAINS_TEXT:
+                return By.xpath("//button[contains(text(), '" + value + "')]");  
             case CONTAINS_TEXT:
-                return By.xpath("//button[contains(text(), '" + value + "')]");    
+            return By.xpath("//*[contains(text(), '" + value + "')]");
+              
             case NORMALIZE:
                 return By.xpath("//a[normalize-space()='"+ value +"']");
             default:
