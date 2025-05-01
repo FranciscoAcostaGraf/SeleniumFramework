@@ -1,0 +1,14 @@
+package framework.data;
+
+public class Data {
+    public static String v(Enum<?> value) {
+        if (value instanceof Gettable) {
+            return ((Gettable) value).get();
+        }
+        throw new IllegalArgumentException("Enum no compatible: " + value);
+    }
+
+    public interface Gettable {
+        String get();
+    }
+}

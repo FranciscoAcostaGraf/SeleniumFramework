@@ -30,6 +30,10 @@ public class UiFunctions {
         element.sendKeys(text);
     }
 
+    public void type(By locator, Enum<?> textEnum) {
+        type(locator, textEnum.toString());
+    }
+    
     public String getText(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).getText();
     }
