@@ -1,13 +1,18 @@
 package tests;
 
-import framework.pages.HomePage;
-import io.qameta.allure.*;
-import tests.base.BaseTest;
-import org.testng.annotations.*;
 import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
-@Feature("Navigation")
-public class NavigationTest extends BaseTest {
+import framework.pages.HomePage;
+import io.qameta.allure.Feature;
+import tests.base.BaseTest;
+
+@Feature("TextBox")
+public class TextBox extends BaseTest {
 
     private HomePage home;
 
@@ -19,12 +24,13 @@ public class NavigationTest extends BaseTest {
     }
 
     @Test(description = "Test Description")
-    public void function() {
-        
+    public void completeForm() {
+        home.goToPage("card mt-4 top-card");
     }
 
     @AfterMethod
     public void cleanup(ITestResult result) {
         super.tearDown(result);
     }
+
 }
