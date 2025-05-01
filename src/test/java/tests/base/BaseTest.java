@@ -21,7 +21,7 @@ public abstract class BaseTest {
             config.load(input);
         } catch (Exception e) {
             System.err.println("Error al cargar config.properties:");
-            e.printStackTrace(); // Imprime la traza completa de la excepción
+            e.printStackTrace();
             throw new RuntimeException("No se pudo cargar config.properties", e);
         }
     }
@@ -31,7 +31,7 @@ public abstract class BaseTest {
     public void setUp(@Optional("chrome") String browser) {
         System.out.println("=== Test started on: " + browser + " ===");
         WebDriver driver = DriverFactory.createDriver(browser);
-        driver.get(getBaseUrl()); // ahora sí usa el config
+        driver.get(getBaseUrl()); 
         driverThreadLocal.set(driver);
     }
 
@@ -70,4 +70,5 @@ public abstract class BaseTest {
         }
         return new byte[0];
     }
+
 }
