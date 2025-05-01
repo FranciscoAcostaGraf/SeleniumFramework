@@ -15,14 +15,9 @@ public class HomePage extends BasePage {
         ui.click(locator);
     }
 
-    public void goToInformesGestion() {
-        ui.click(LocatorStrategy.get(CONTAINS_TEXT, "INFORMES DE GESTION"));
-    }
-
-    public void goToTabs(String locator){
+    public void goToPage(String locator){
         By link = LocatorStrategy.get(NORMALIZE, locator);
         ui.click(link);
     }
-    
 
 }

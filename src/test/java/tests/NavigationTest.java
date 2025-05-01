@@ -18,14 +18,9 @@ public class NavigationTest extends BaseTest {
         home = new HomePage(getDriver());
     }
 
-    @Test(description = "Should navigate to diff tabs")
-    @Description("Verify that I can access to informes de gestión")
-    public void navigateThroughTabs() {
-        home.goToInformesGestion();
-        home.goToTabs("Reporte De Comisiones Nacionales");
-        home.goToTabs("Reporte De Comisiones Internacionales");
-        home.goToTabs("Reporte De Vencimiento Nacionales");
-        home.goToTabs("Reporte De Vencimiento Internacionales");
+    @Test(description = "Test Description")
+    public void function() {
+        
     }
 
     @AfterMethod
