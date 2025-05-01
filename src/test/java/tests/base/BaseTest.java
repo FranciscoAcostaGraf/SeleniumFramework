@@ -31,6 +31,7 @@ public abstract class BaseTest {
     public void setUp(@Optional("chrome") String browser) {
         System.out.println("=== Test started on: " + browser + " ===");
         WebDriver driver = DriverFactory.createDriver(browser);
+        driver.manage().window().maximize();
         driver.get(getBaseUrl()); 
         driverThreadLocal.set(driver);
     }
