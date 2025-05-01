@@ -22,6 +22,10 @@ public class LocatorStrategy {
                 return By.cssSelector(value);
             case XPATH:
                 return By.xpath(value);
+            case CONTAINS_TEXT:
+                return By.xpath("//button[contains(text(), '" + value + "')]");    
+            case NORMALIZE:
+                return By.xpath("//a[normalize-space()='"+ value +"']");
             default:
                 throw new IllegalArgumentException("Unsupported locator type: " + type);
         }
