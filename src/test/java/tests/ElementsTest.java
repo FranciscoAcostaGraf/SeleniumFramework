@@ -7,19 +7,19 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import framework.pages.TextBoxPage;
+import framework.pages.ElementsPage;
 import io.qameta.allure.Feature;
 import tests.base.BaseTest;
 
-@Feature("TextBox")
-public class TextBoxTest extends BaseTest {
+@Feature("Elements")
+public class ElementsTest extends BaseTest {
 
-    private TextBoxPage home;
+    private ElementsPage home;
 
     @BeforeMethod
     @Parameters("browser")
     public void init(@Optional("chrome") String browser) {
-        home = new TextBoxPage(getDriver());
+        home = new ElementsPage(getDriver());
     }
 
     @Test(description = "Test Description")

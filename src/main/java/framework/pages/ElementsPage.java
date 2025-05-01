@@ -6,11 +6,11 @@ import framework.ui.LocatorStrategy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class TextBoxPage extends BasePage {
+public class ElementsPage extends BasePage {
 
     public final By textBox = LocatorStrategy.get(ID, "item-0");
 
-    public TextBoxPage(WebDriver driver) {
+    public ElementsPage(WebDriver driver) {
         super(driver);
     }
 
